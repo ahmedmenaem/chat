@@ -38,7 +38,7 @@ const MessageFooter = ({ sender, sentTime, senderAvatar }) => {
     }
   `;
   return (
-    <div css={style} className="sender">
+    <div css={style} className={sender}>
       <span className="username">{sender}</span>
       <span className="avatar">
         <img src={senderAvatar} alt={sender} />
