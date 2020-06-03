@@ -1,9 +1,9 @@
 /** @jsx jsx */
-
 import { css, jsx } from "@emotion/core";
 import { useTheme } from "emotion-theming";
 import TodoMessageBody from "./TodoMessageBody/TodoMessageBody";
 import LogMessageBody from "./LogMessageBody/LogMessageBody";
+import MessageFooter from "./MessageFooter/MessageFooter";
 
 const Message = ({ message }) => {
   const theme = useTheme();
@@ -31,40 +31,6 @@ const Message = ({ message }) => {
           color: ${theme.colors.gunmetal};
           font-weight: light;
           font-size: 0.8rem;
-        }
-      }
-
-      .message__footer {
-        display: flex;
-        justify-content: space-between;
-        .username {
-          color: ${theme.colors.gunmetal};
-          font-size: 0.8rem;
-          font-weight: bolder;
-        }
-        .avatar {
-          display: flex;
-          align-items: center;
-          flex-direction: row-reverse;
-
-          span {
-            color: ${theme.colors.gunmetal};
-            font-size: 0.7rem;
-            font-weight: lighter;
-            margin: 0 5px;
-          }
-
-          img {
-            width: 30px;
-            height: 30px;
-          }
-        }
-        &:not(.me) {
-          flex-direction: row-reverse;
-
-          .avatar {
-            flex-direction: row;
-          }
         }
       }
     }
@@ -146,15 +112,11 @@ const Message = ({ message }) => {
             <p>{message.messageBody}</p>
           )}
         </div>
-
-        {/* Message footer */}
-        <div className={message.messageSender + " message__footer"}>
-          <span className="username">{message.messageSender}</span>
-          <span className="avatar">
-            <img src={message.senderAvatar} alt={message.messageSender} />
-            <span>{message.sentTime}</span>
-          </span>
-        </div>
+        <MessageFooter
+          sender={message.messageSender}
+          senderAvatar={message.senderAvatar}
+          sentTime={message.sentTime}
+        />
       </div>
     </li>
   );

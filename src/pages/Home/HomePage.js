@@ -2,8 +2,8 @@
 
 import SideNav from "../../components/SideNav/SideNav";
 import { css, jsx } from "@emotion/core";
-import ChatList from "../../components/ConversationsList/ConversationsList";
-import MainChat from "../../components/Chat/Chat";
+import ConversationsList from "../../components/ConversationsList/ConversationsList";
+import Chat from "../../components/Chat/Chat";
 
 const HomePage = () => {
   const style = css`
@@ -14,8 +14,8 @@ const HomePage = () => {
   return (
     <main css={style}>
       <SideNav />
-      <ChatList />
-      <MainChat />
+      <ConversationsList />
+      <Chat />
     </main>
   );
 };
